@@ -1,5 +1,5 @@
 <%-- 
-    Document   : Hello Word
+    Document   : index
     Created on : 2014-07-14, 18:33:05
     Author     : M
 --%>
@@ -9,11 +9,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Book examples</title>
+        <title>JSP Page</title>
     </head>
     <body>
-        <h1>Book examples</h1>
-        <a href="helloWord.jsp">Hello Word</a>
-        <a href="md5Show.jsp">MD5 example</a>
+        <h1>Hello World!</h1>
+        <form action="Hello.do">
+            <p>Enter Name:</p>
+            <input type="text" name="name"/>
+            <input type='submit' value="OK"/>
+        </form>
     </body>
 </html>

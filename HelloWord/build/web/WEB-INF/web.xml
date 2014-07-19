@@ -4,9 +4,17 @@
         <servlet-name>HelloServlet</servlet-name>
         <servlet-class>org.jeeweb.servlets.HelloServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>MD5Generator</servlet-name>
+        <servlet-class>org.jeeweb.servlets.MD5Generator</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>HelloServlet</servlet-name>
         <url-pattern>/Hello.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MD5Generator</servlet-name>
+        <url-pattern>/md5.do</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

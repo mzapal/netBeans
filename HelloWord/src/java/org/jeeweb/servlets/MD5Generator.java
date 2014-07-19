@@ -8,6 +8,9 @@ package org.jeeweb.servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,7 +20,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author M
  */
-public class HelloServlet extends HttpServlet {
+public class MD5Generator extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,18 +36,10 @@ public class HelloServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            String login = request.getParameter("name");
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet HelloServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Hello! " + login + ". on this world</h1>");
-            out.println("<br/>");
-            out.println("<a href=\"index.jsp\">Back to main page</a>");
-            out.println("</body>");
-            out.println("</html>");
+           String data = request.getParameter("data2hash");
+           String hash = hashData(data);
+           request.setAttribute("md5hash", hash);
+           request.getRequestDispatcher("/show.jsp").forward(request, response);
         } finally {
             out.close();
         }
@@ -88,5 +83,17 @@ public class HelloServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
+    private String hashData(String data) throws ServletException{
+       try{
+           MessageDigest m = MessageDigest.getInstance("MD5");
+           byte[] buffer = data.getBytes();
+           m.update(buffer, 0, buffer.length);
+           BigInteger hash = new BigInteger(1, m.digest());
+           return String.format("%1$032X", hash);
+       }catch(NoSuchAlgorithmException ex){
+           throw new ServletException("MD5 algorythm is not supported!",ex.getCause());
+       }
+    }
 
 }
