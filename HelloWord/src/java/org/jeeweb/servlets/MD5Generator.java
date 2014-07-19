@@ -39,7 +39,7 @@ public class MD5Generator extends HttpServlet {
            String data = request.getParameter("data2hash");
            String hash = hashData(data);
            request.setAttribute("md5hash", hash);
-           request.getRequestDispatcher("/show.jsp").forward(request, response);
+           request.getRequestDispatcher("/md5Show.jsp").forward(request, response);
         } finally {
             out.close();
         }

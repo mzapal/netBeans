@@ -9,9 +9,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>MD5 show</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <p>MD5 hash response: <%=request.getAttribute("md5hash") %> </p>
+        <a href="index.jsp">Back to main page</a>
     </body>
 </html>

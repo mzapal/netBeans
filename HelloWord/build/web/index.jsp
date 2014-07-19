@@ -13,7 +13,9 @@
     </head>
     <body>
         <h1>Book examples</h1>
-        <a href="helloWord.jsp">Hello Word</a>
-        <a href="md5Show.jsp">MD5 example</a>
+        <UL>
+            <LI><a href="helloWord.jsp">Hello Word</a> 
+            <LI><a href="md5Hash.jsp">MD5</a>
+        </UL> 
     </body>
 </html>
