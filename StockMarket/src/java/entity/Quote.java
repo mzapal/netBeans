@@ -7,7 +7,7 @@ import java.util.Date;
  * @author M
  */
 
-class Quote {
+public class Quote {
 
     private double price;
     private Date day;
