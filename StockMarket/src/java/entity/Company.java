@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @date 23.07.2014
+ * @data 23.07.2014
  * @author M
  */
 public class Company {
@@ -49,7 +49,7 @@ public class Company {
     }
     
     public String getName() {
-        return name;
+        return this.name;
     }
     
     public void setName(String name) {
@@ -57,7 +57,7 @@ public class Company {
     }
 
     public String getSymbol() {
-        return symbol;
+        return this.symbol;
     }
     
     public void setSymbol(String symbol) {
@@ -65,7 +65,7 @@ public class Company {
     }
 
     public String getSector() {
-        return sector;
+        return this.sector;
     }
     
     public void setSector(String sector) {
@@ -73,7 +73,7 @@ public class Company {
     }
     
     public List<Quote> getQuotes() {
-        return quotes;
+        return this.quotes;
     }
     
     public void setQuotes(List<Quote> quotes) {
@@ -84,7 +84,7 @@ public class Company {
         if (this.lastQuote == null)
             if (this.getQuotes() != null && !this.getQuotes().isEmpty())
                 this.lastQuote = this.getQuotes().get(this.getQuotes().size() - 1);
-        return lastQuote;
+        return this.lastQuote;
     }
 
     public void setLastQuote(Quote lastQuote) {

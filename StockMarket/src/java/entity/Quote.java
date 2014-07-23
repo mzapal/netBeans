@@ -30,7 +30,7 @@ class Quote {
     }
 
     public double getPrice() {
-        return price;
+        return this.price;
     }
     
     public void setPrice(double price) {
@@ -38,7 +38,7 @@ class Quote {
     }
 
     public Date getDay() {
-        return day;
+        return this.day;
     }
     
     public void setDay(Date day) {
@@ -46,7 +46,7 @@ class Quote {
     }
 
     public double getPriceChange() {
-        return priceChange;
+        return this.priceChange;
     }
     
     public void setPriceChange(double priceChange) {
@@ -54,7 +54,7 @@ class Quote {
     }
 
     public Company getCompany() {
-        return company;
+        return this.company;
     }
 
     public void setCompany(Company company) {
