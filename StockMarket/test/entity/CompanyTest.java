@@ -1,177 +1,133 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package entity;
 
-import java.util.List;
+import java.util.Date;
 import static org.testng.Assert.*;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 /**
- *
+ * @date 23.07.2014
  * @author M
  */
 public class CompanyTest {
+    private final static String COMPANY_NAME = "Name";
+    private final static String COMPANY_SYMBOL = "NM";
+    private final static String COMPANY_SECTOR = CompanyType.ENERGETIC.toString();
+    private Company instanceNull;
+    private Company installFillBasic;
+    private Company installFillFull;
     
     public CompanyTest() {
     }
-
-    @BeforeClass
-    public static void setUpClass() throws Exception {
-    }
-
-    @AfterClass
-    public static void tearDownClass() throws Exception {
-    }
-
     @BeforeMethod
-    public void setUpMethod() throws Exception {
+    public void set(){
+        instanceNull  = new Company();
+        installFillBasic = new Company(COMPANY_NAME, COMPANY_SYMBOL, COMPANY_SECTOR);
+        installFillFull = new Company(COMPANY_NAME, COMPANY_NAME, COMPANY_NAME, 25, 88, new Date());
     }
 
-    @AfterMethod
-    public void tearDownMethod() throws Exception {
+    @Test
+    public void testGetName_Null() {
+       assertNull(instanceNull.getName());
     }
-
-    /**
-     * Test of getName method, of class Company.
-     */
+    
     @Test
     public void testGetName() {
-        System.out.println("getName");
-        Company instance = new Company();
-        String expResult = "";
-        String result = instance.getName();
-        assertEquals(result, expResult);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       assertEquals(installFillBasic.getName(), COMPANY_NAME);
     }
 
-    /**
-     * Test of setName method, of class Company.
-     */
     @Test
-    public void testSetName() {
-        System.out.println("setName");
-        String name = "";
-        Company instance = new Company();
-        instance.setName(name);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testSetName_null() {
+        // GIVEN
+        instanceNull.setName(null);
+        
+        // THEN
+        assertNull(instanceNull.getName());
     }
-
-    /**
-     * Test of getSymbol method, of class Company.
-     */
+    
     @Test
-    public void testGetSymbol() {
-        System.out.println("getSymbol");
-        Company instance = new Company();
-        String expResult = "";
-        String result = instance.getSymbol();
-        assertEquals(result, expResult);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testSetName_NotNull() {
+        // GIVEN
+        instanceNull.setName(COMPANY_NAME);
+        
+        // THEN
+        assertEquals(instanceNull.getName(), COMPANY_NAME);
     }
 
-    /**
-     * Test of setSymbol method, of class Company.
-     */
     @Test
-    public void testSetSymbol() {
-        System.out.println("setSymbol");
-        String symbol = "";
-        Company instance = new Company();
-        instance.setSymbol(symbol);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testGetSymbol_null() {
+        assertNull(instanceNull.getSymbol()); 
     }
-
-    /**
-     * Test of getSector method, of class Company.
-     */
+    
     @Test
-    public void testGetSector() {
-        System.out.println("getSector");
-        Company instance = new Company();
-        String expResult = "";
-        String result = instance.getSector();
-        assertEquals(result, expResult);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testGetSymbol_NotNull() {
+        assertEquals(installFillBasic.getSymbol(), COMPANY_SYMBOL);
     }
 
-    /**
-     * Test of setSector method, of class Company.
-     */
     @Test
-    public void testSetSector() {
-        System.out.println("setSector");
-        String sector = "";
-        Company instance = new Company();
-        instance.setSector(sector);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+    public void testSetSymbol_null() {
+        // GIVEN
+        instanceNull.setSymbol(null);
+        
+        // THEN
+        assertNull(instanceNull.getSymbol());
+    }
+    
+    @Test
+    public void testSetSymbol_notNull() {
+        // GIVEN
+        instanceNull.setSymbol(COMPANY_SYMBOL + "25");
+        
+        // THEN
+        assertEquals(instanceNull.getSymbol(), COMPANY_SYMBOL + "25");
     }
 
-    /**
-     * Test of getQuotes method, of class Company.
-     */
+    @Test
+    public void testGetSector_null() {
+       assertNull(instanceNull.getSector());
+    }
+    
+   @Test
+    public void testGetSector_NotNull() {
+       assertEquals(installFillBasic.getSector(), COMPANY_SECTOR);
+    }
+
+    @Test
+    public void testSetSector_null() {
+        // GIVEN
+        installFillBasic.setSector(null);
+        
+        // THEN
+        assertNull(installFillBasic.getSector());
+    }
+    
+    @Test
+    public void testSetSector_NotNull() {
+        // GIVEN
+        instanceNull.setSector(COMPANY_SECTOR + "88");
+        
+        // THEN
+        assertEquals(instanceNull.getSector(), COMPANY_SECTOR + "88");
+    }
+
     @Test
     public void testGetQuotes() {
-        System.out.println("getQuotes");
-        Company instance = new Company();
-        List expResult = null;
-        List result = instance.getQuotes();
-        assertEquals(result, expResult);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        fail("Not yet implemented");
     }
 
-    /**
-     * Test of setQuotes method, of class Company.
-     */
     @Test
     public void testSetQuotes() {
-        System.out.println("setQuotes");
-        List<Quote> quotes = null;
-        Company instance = new Company();
-        instance.setQuotes(quotes);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       fail("Not yet implemented");
     }
 
-    /**
-     * Test of getLastQuote method, of class Company.
-     */
     @Test
     public void testGetLastQuote() {
-        System.out.println("getLastQuote");
-        Company instance = new Company();
-        Quote expResult = null;
-        Quote result = instance.getLastQuote();
-        assertEquals(result, expResult);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       fail("Not yet implemented");
     }
 
-    /**
-     * Test of setLastQuote method, of class Company.
-     */
     @Test
     public void testSetLastQuote() {
-        System.out.println("setLastQuote");
-        Quote lastQuote = null;
-        Company instance = new Company();
-        instance.setLastQuote(lastQuote);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       fail("Not yet implemented");
     }
     
 }

@@ -14,7 +14,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 /**
- *
+ * @date 23.07.2014
  * @author M
  */
 public class CompanyTypeTest {
@@ -43,12 +43,7 @@ public class CompanyTypeTest {
      */
     @Test
     public void testValues() {
-        System.out.println("values");
-        CompanyType[] expResult = null;
-        CompanyType[] result = CompanyType.values();
-        assertEquals(result, expResult);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+       fail("Not yet implemented");     
     }
 
     /**
@@ -56,13 +51,7 @@ public class CompanyTypeTest {
      */
     @Test
     public void testValueOf() {
-        System.out.println("valueOf");
-        String name = "";
-        CompanyType expResult = null;
-        CompanyType result = CompanyType.valueOf(name);
-        assertEquals(result, expResult);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        fail("Not yet implemented");
     }
 
     /**
@@ -70,13 +59,7 @@ public class CompanyTypeTest {
      */
     @Test
     public void testToString() {
-        System.out.println("toString");
-        CompanyType instance = null;
-        String expResult = "";
-        String result = instance.toString();
-        assertEquals(result, expResult);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        fail("Not yet implemented");
     }
     
 }
