@@ -18,7 +18,9 @@ import org.testng.annotations.Test;
  * @author M
  */
 public class CompanyTypeTest {
-    
+    private static String ENERGETIC = "Energetic";
+    private static String INFORMATIC = "Informatic";
+    private static String ENTERTAINMENT = "Entertainment";
     public CompanyTypeTest() {
     }
 
@@ -43,7 +45,7 @@ public class CompanyTypeTest {
      */
     @Test
     public void testValues() {
-       fail("Not yet implemented");     
+        assertEquals(3, CompanyType.values().length);
     }
 
     /**
@@ -51,7 +53,9 @@ public class CompanyTypeTest {
      */
     @Test
     public void testValueOf() {
-        fail("Not yet implemented");
+        assertEquals(CompanyType.ENERGETIC, CompanyType.valueOf("ENERGETIC"));
+        assertEquals(CompanyType.ENTERTAINMENT, CompanyType.valueOf("ENTERTAINMENT"));
+        assertEquals(CompanyType.INFORMATIC, CompanyType.valueOf("INFORMATIC"));
     }
 
     /**
@@ -59,7 +63,9 @@ public class CompanyTypeTest {
      */
     @Test
     public void testToString() {
-        fail("Not yet implemented");
+        assertEquals(ENERGETIC, CompanyType.ENERGETIC.toString());
+        assertEquals(ENTERTAINMENT, CompanyType.ENTERTAINMENT.toString());
+        assertEquals(INFORMATIC, CompanyType.INFORMATIC.toString());
     }
     
 }

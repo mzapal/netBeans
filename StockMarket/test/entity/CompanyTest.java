@@ -1,6 +1,8 @@
 package entity;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import static org.testng.Assert.*;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -111,23 +113,29 @@ public class CompanyTest {
     }
 
     @Test
-    public void testGetQuotes() {
-        fail("Not yet implemented");
-    }
-
-    @Test
     public void testSetQuotes() {
-       fail("Not yet implemented");
+       // GIVEN
+       List<Quote> quotes = new ArrayList<Quote>();
+       Quote quote = new Quote(12.1, new Date(), 1.1, installFillBasic);
+       quotes.add(quote);
+       installFillBasic.setQuotes(quotes);
+       // THEN
+       assertEquals(1,installFillBasic.getQuotes().size());
+       
     }
 
     @Test
     public void testGetLastQuote() {
-       fail("Not yet implemented");
+       assertNotNull(installFillFull.getLastQuote());
     }
 
     @Test
     public void testSetLastQuote() {
-       fail("Not yet implemented");
+       // GIVEN
+       Quote quote = new Quote(12.1, new Date(), 1.1, installFillBasic);
+       installFillBasic.setLastQuote(quote);
+       // THEN
+       assertNotNull(installFillBasic.getLastQuote());
     }
     
 }
