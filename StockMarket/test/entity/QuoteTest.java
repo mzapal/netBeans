@@ -1,9 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package entity;
 
 import java.util.Date;
@@ -20,6 +14,8 @@ import org.testng.annotations.Test;
  */
 public class QuoteTest {
     
+    private Quote quote;
+    private Company company;
     public QuoteTest() {
     }
 
@@ -33,6 +29,8 @@ public class QuoteTest {
 
     @BeforeMethod
     public void setUpMethod() throws Exception {
+        company = new Company("Test company", "TC", CompanyType.ENERGETIC.toString());
+        quote = new Quote(24.55, new Date(36000), -2.4, company);
     }
 
     @AfterMethod
@@ -44,7 +42,7 @@ public class QuoteTest {
      */
     @Test
     public void testGetPrice() {
-        fail("Not yet implemented");
+      assertEquals(24.55,quote.getPrice());
     }
 
     /**
@@ -52,7 +50,8 @@ public class QuoteTest {
      */
     @Test
     public void testSetPrice() {
-        fail("Not yet implemented");
+      quote.setPrice(56.0);
+      assertEquals(56.0, quote.getPrice());  
     }
 
     /**
@@ -60,7 +59,7 @@ public class QuoteTest {
      */
     @Test
     public void testGetDay() {
-        fail("Not yet implemented");
+        assertEquals(new Date(36000), quote.getDay());
     }
 
     /**
@@ -68,7 +67,8 @@ public class QuoteTest {
      */
     @Test
     public void testSetDay() {
-        fail("Not yet implemented");
+        quote.setDay(new Date(72000));
+        assertEquals(new Date(72000), quote.getDay());
     }
 
     /**
@@ -76,7 +76,7 @@ public class QuoteTest {
      */
     @Test
     public void testGetPriceChange() {
-        fail("Not yet implemented");
+        assertEquals(-2.4, quote.getPriceChange());
     }
 
     /**
@@ -84,7 +84,8 @@ public class QuoteTest {
      */
     @Test
     public void testSetPriceChange() {
-        fail("Not yet implemented");
+        quote.setPriceChange(2.5);
+        assertEquals(2.5, quote.getPriceChange());
     }
 
     /**
@@ -92,7 +93,7 @@ public class QuoteTest {
      */
     @Test
     public void testGetCompany() {
-        fail("Not yet implemented");
+        assertEquals(company, quote.getCompany());
     }
 
     /**
@@ -100,7 +101,9 @@ public class QuoteTest {
      */
     @Test
     public void testSetCompany() {
-        fail("Not yet implemented");
+        Company newCompany = new Company("New Company", "NC", CompanyType.INFORMATIC.toString());
+        quote.setCompany(newCompany);
+        assertEquals(newCompany, quote.getCompany());
     }
     
 }
