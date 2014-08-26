@@ -8,5 +8,18 @@
         <managed-bean-name> companyManager </managed-bean-name>
         <managed-bean-class> entity.CompanyManager </managed-bean-class>
         <managed-bean-scope> request </managed-bean-scope>
+        <managed-property>
+            <property-name>activeCompanySymbol</property-name>
+            <value>#{param.symbol}</value>
+        </managed-property>
+    </managed-bean>
+    <managed-bean>
+        <managed-bean-name> sectorInfo </managed-bean-name>
+        <managed-bean-class> entity.SectorInfo </managed-bean-class>
+        <managed-bean-scope> request </managed-bean-scope>
+        <managed-property>
+            <property-name>companyManager</property-name>
+            <value>#{companyManager}</value>
+        </managed-property>
     </managed-bean>
 </faces-config>

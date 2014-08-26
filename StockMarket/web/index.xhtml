@@ -2,12 +2,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     <h:head>
-        <title>Companies info</title>
+        <title>Companies Info</title>
     </h:head>
     <h:body>
-        <h1>Stock quotes</h1>
+        <h1>Companies Info</h1>
         <table>
             <tr>
                 <th>Name</th><th>Symbol</th><th>Price</th><th>Price change (%)</th>
@@ -15,12 +16,18 @@
             <ui:repeat value="#{companyManager.companies}" var="company">
                 <tr>
                     <td>#{company.name}</td>
-                    <td>#{company.symbol}</td>
+                    <td>
+                        <h:outputLink value="faces/history.xhtml">
+                            <f:param name="symbol" value="#{company.symbol}"/>
+                            <h:outputText value="#{company.symbol}"/>
+                        </h:outputLink>
+                    </td>
                     <td>#{company.lastQuote.price}</td>
                     <td>#{company.lastQuote.priceChange}</td>
                 </tr>
             </ui:repeat>
         </table>
+        <h:outputLink value="faces/sector.xhtml">Informations about sectors</h:outputLink>
     </h:body>
 </html>
 

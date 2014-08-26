@@ -10,6 +10,7 @@ import java.util.*;
 public class CompanyManager {
    
     private List<Company> companies;
+    private String activeCompanySymbol;
     
     /**
      * Default constructor
@@ -31,4 +32,19 @@ public class CompanyManager {
         this.companies = companies;
     }
     
+    public Company getActiveCompany(){
+        for(Company company: this.getCompanies()){
+            if(company.getSymbol().equals(this.getActiveCompanySymbol()))
+                return company;
+        }
+        return null;
+    }
+
+    public String getActiveCompanySymbol() {
+        return activeCompanySymbol;
+    }
+    
+    public void setActiveCompanySymbol(String activeCompanySymbol){
+            this.activeCompanySymbol = activeCompanySymbol;
+    }
 }
